@@ -29,21 +29,21 @@ GET /hotels/{id} - получение расширенной информаци�
     {
         "id": 1,
         "name": "DoubleTree by Hilton Minsk",
-        "brand" "Hilton",
+        "brand": "Hilton",
         "address":
             {
                 "houseNumber": 9
                 "street": "Pobediteley Avenue",
                 "city": "Minsk",
-                "county": "Belarus",
+                "country": "Belarus",
                 "postCode": "220004"
             }
         "contacts":
             {
                 "phone": "+375 17 309-80-00",
-                "email": doubletreeminsk.info@hilton.com
+                "email": "doubletreeminsk.info@hilton.com"
             },
-        "arrivalTime:
+        "arrivalTime":
             {
                 "checkIn": "14:00",
                 "checkOut": "12:00"
@@ -66,7 +66,7 @@ GET /hotels/{id} - получение расширенной информаци�
 3)
 
 GET /search - поиск получение списка всех отелей с их краткой информацией по следующим параметрам: name, brand, city,
-county, amenities. Например: /search?city=minsk
+country, amenities. Например: /search?city=minsk
 
 Пример ответа:
 
@@ -81,21 +81,21 @@ POST /hotels - создание нового отеля
     {
         "name": "DoubleTree by Hilton Minsk",
         "description": "The DoubleTree by Hilton Hotel Minsk offers 193 luxurious rooms in the Belorussian capital and stunning views of Minsk city from the hotel's 20th floor ...", - (optional)
-        "brand" "Hilton",
+        "brand": "Hilton",
         "address":
             {
                 "houseNumber": 9
                 "street": "Pobediteley Avenue",
                 "city": "Minsk",
-                "county": "Belarus",
+                "country": "Belarus",
                 "postCode": "220004"
             }
         "contacts":
             {
                 "phone": "+375 17 309-80-00",
-                "email": doubletreeminsk.info@hilton.com
+                "email": "doubletreeminsk.info@hilton.com"
             },
-        "arrivalTime:
+        "arrivalTime":
             {
                 "checkIn": "14:00",
                 "checkOut": "12:00" - (optional)
@@ -134,14 +134,14 @@ POST /hotels/{id}/amenities - добавление списка amenities к о�
 6)
 
 GET /histogram/{param} - получение колличества отелей сгруппированных по каждому значению указанного параметра.
-Параметр: brand, city, county, amenities.
+Параметр: brand, city, country, amenities.
 
 Например: /histogram/city должен вернуть:
 
     {
         "Minsk": 1,
-        "Moskow: 2,
-        "Mogilev: 0,
+        "Moskow": 2,
+        "Mogilev": 0,
         и тд.
     }
 
@@ -149,7 +149,7 @@ GET /histogram/{param} - получение колличества отелей 
 
     {
         "Free parking": 1,
-        "Free WiFi: 20,
+        "Free WiFi": 20,
         "Non-smoking rooms": 5,
         "Fitness center": 0,
         и тд.

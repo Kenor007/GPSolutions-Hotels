@@ -1,0 +1,29 @@
+server:
+  port: 8092
+spring:
+  application:
+    name: hotels
+  datasource:
+    url: jdbc:h2:mem:hotel_db
+    driver-class-name: org.h2.Driver
+    username: admin
+    password:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/changelog-master.yml
+logging:
+  level:
+    root: info
+    com.gpsolutions.hotels: debug
