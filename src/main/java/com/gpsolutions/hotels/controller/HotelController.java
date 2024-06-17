@@ -3,6 +3,9 @@ package com.gpsolutions.hotels.controller;
 import com.gpsolutions.hotels.dto.*;
 import com.gpsolutions.hotels.service.HotelService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -31,6 +34,10 @@ public class HotelController {
     @PostMapping("/hotels")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Create a hotel by params")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Successfully created", content = @Content),
+            @ApiResponse(responseCode = "400", description = "Bad Request - The hotel already exists"),
+    })
     public HotelShortResponseDto createHotel(
             @Valid @RequestBody HotelCreateRequestDto hotelCreateRequestDto) {
         log.debug("Creating hotel: {}", hotelCreateRequestDto);
