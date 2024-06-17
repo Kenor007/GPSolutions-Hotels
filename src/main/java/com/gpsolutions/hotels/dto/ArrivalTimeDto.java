@@ -1,6 +1,7 @@
 package com.gpsolutions.hotels.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,5 +13,6 @@ public class ArrivalTimeDto {
     @Size(min = 1, message = "Check in should contain at least 1 character")
     private String checkIn;
 
+    @NotNull(message = "checkOut should not be null")
     private String checkOut = "";
 }
