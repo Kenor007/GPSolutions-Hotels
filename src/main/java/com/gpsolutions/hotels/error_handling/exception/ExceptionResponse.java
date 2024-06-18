@@ -1,11 +1,17 @@
 package com.gpsolutions.hotels.error_handling.exception;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.http.HttpStatus;
 
 import java.time.ZonedDateTime;
 
-public record ExceptionResponse(String message,
-                                HttpStatus httpStatus,
-                                String description,
-                                ZonedDateTime timestamp) {
+public record ExceptionResponse(
+        @Schema(requiredMode = Schema.RequiredMode.REQUIRED)
+        String message,
+        @Schema(requiredMode = Schema.RequiredMode.REQUIRED)
+        HttpStatus httpStatus,
+        @Schema(requiredMode = Schema.RequiredMode.REQUIRED)
+        String description,
+        @Schema(requiredMode = Schema.RequiredMode.REQUIRED)
+        ZonedDateTime timestamp) {
 }
